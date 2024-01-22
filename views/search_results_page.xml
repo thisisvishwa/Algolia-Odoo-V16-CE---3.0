@@ -1,0 +1,39 @@
+<odoo>
+    <template id="search_results_page_template" name="Search Results Page">
+        <t t-name="algolia_ecommerce.search_results_page">
+            <div id="search_results" class="search-results-page">
+                <div class="search-summary">
+                    <span class="search-results-count">
+                        <t t-esc="search_result_count"/> results found
+                    </span>
+                    <span class="search-query-string">
+                        for "<t t-esc="search_query"/>"
+                    </span>
+                </div>
+                <div class="search-results-list">
+                    <t t-foreach="search_results" t-as="result">
+                        <div class="search-result-item">
+                            <div class="search-result-image">
+                                <img t-att-src="result.image_url" alt="Product Image"/>
+                            </div>
+                            <div class="search-result-info">
+                                <h2 class="search-result-title">
+                                    <a t-att-href="result.product_url" t-esc="result.name"/>
+                                </h2>
+                                <div class="search-result-price">
+                                    <t t-esc="result.price"/>
+                                </div>
+                                <div class="search-result-description">
+                                    <t t-esc="result.description"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </div>
+                <div class="search-pagination">
+                    <!-- Pagination can be implemented here -->
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

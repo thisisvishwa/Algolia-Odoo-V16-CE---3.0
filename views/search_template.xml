@@ -1,0 +1,42 @@
+<odoo>
+    <template id="search_template" name="Search Template">
+        <div class="search-container">
+            <input type="text" id="search_input" class="search-bar" placeholder="Search for products..." />
+            <button type="button" id="search_button" class="btn btn-primary">Search</button>
+            <div id="search_suggestions" class="search-suggestions"></div>
+        </div>
+        <div id="search_results" class="search-results"></div>
+        <div id="facet_filters" class="facet-filters">
+            <t t-foreach="request.env['product.attribute'].search([])" t-as="attribute">
+                <div class="facet-filter-item">
+                    <span t-esc="attribute.name"/>
+                    <select class="facet-select" t-att-id="'facet_' + attribute.id">
+                        <t t-foreach="attribute.value_ids" t-as="value">
+                            <option t-att-value="value.id" t-esc="value.name"/>
+                        </t>
+                    </select>
+                </div>
+            </t>
+        </div>
+        <div id="responsive_search" class="responsive-search">
+            <t t-call="website.layout"/>
+            <div class="oe_structure"/>
+            <div class="container">
+                <t t-foreach="request.website.search_products()" t-as="product">
+                    <div class="responsive-element">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <img t-att-src="product.image_url" alt="Product" class="img-responsive"/>
+                            </div>
+                            <div class="col-md-9">
+                                <h2 t-esc="product.name"/>
+                                <p t-esc="product.description"/>
+                                <span t-esc="product.price" t-esc-options='{"widget": "monetary", "display_currency": "product.currency_id"}'/>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </div>
+        </div>
+    </template>
+</odoo>

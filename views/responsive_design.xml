@@ -1,0 +1,39 @@
+<odoo>
+    <template id="responsive_search_template" name="Responsive Search Design">
+        <xpath expr="//div[@id='wrap']" position="inside">
+            <div class="container" id="responsive_search">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-8 col-md-9">
+                        <input type="text" id="search_input" class="form-control search-bar" placeholder="Search for products..."/>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-3">
+                        <button type="button" id="search_button" class="btn btn-primary">Search</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div id="search_suggestions" class="search-suggestions"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div id="search_results" class="search-results"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div id="facet_filters" class="facet-filters"></div>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+    </template>
+</odoo>
+
+<template id="assets_frontend" inherit_id="web.assets_frontend" name="Algolia Search Frontend Assets">
+    <xpath expr="." position="inside">
+        <link rel="stylesheet" type="text/scss" href="/your_module/static/src/css/search_styles.css"/>
+        <script type="text/javascript" src="/your_module/static/src/js/search_autocomplete.js"></script>
+        <script type="text/javascript" src="/your_module/static/src/js/search_filters.js"></script>
+    </xpath>
+</template>

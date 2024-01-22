@@ -1,0 +1,120 @@
+/* Algolia Search Styles */
+
+/* Search Bar */
+.search-bar {
+  position: relative;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.search-bar input#search_input {
+  width: 100%;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.search-bar button#search_button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 10px 15px;
+  border: none;
+  background: #5c6bc0;
+  color: white;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+}
+
+/* Search Suggestions */
+#search_suggestions {
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  background: white;
+  border: 1px solid #ccc;
+  border-top: none;
+  z-index: 1000;
+}
+
+#search_suggestions .search-result-item {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+}
+
+#search_suggestions .search-result-item:last-child {
+  border-bottom: none;
+}
+
+/* Search Results */
+#search_results {
+  padding: 20px;
+  background: #f9f9f9;
+}
+
+.search-result-item {
+  margin-bottom: 15px;
+  padding: 15px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+/* Facet Filters */
+#facet_filters {
+  padding: 10px 0;
+}
+
+.facet-filter-item {
+  display: inline-block;
+  margin-right: 10px;
+  padding: 5px 10px;
+  background: #e0e0e0;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.facet-filter-item.active {
+  background: #5c6bc0;
+  color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .responsive-element {
+    padding: 10px;
+  }
+
+  .search-bar,
+  .search-bar input#search_input,
+  .search-bar button#search_button {
+    width: 100%;
+  }
+
+  #search_suggestions {
+    display: none;
+  }
+}
+
+/* Icons */
+.search-icon {
+  background-image: url('../img/search_icons.png');
+  background-size: contain;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+}
+
+/* Misc */
+.hidden {
+  display: none;
+}
+
+/* Feedback Mechanism */
+.search-feedback {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #666;
+}

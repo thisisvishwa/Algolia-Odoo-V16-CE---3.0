@@ -1,0 +1,51 @@
+<odoo>
+    <data noupdate="1">
+        <!-- Algolia API Configuration Parameters -->
+        <record id="algolia_settings_view" model="ir.ui.view">
+            <field name="name">algolia.settings.view</field>
+            <field name="model">algolia.integration.settings</field>
+            <field name="arch" type="xml">
+                <form string="Algolia Settings">
+                    <sheet>
+                        <group>
+                            <field name="algolia_api_key" string="Algolia API Key"/>
+                            <field name="algolia_app_id" string="Algolia Application ID"/>
+                            <field name="index_name" string="Algolia Index Name"/>
+                            <field name="search_only_api_key" string="Search-Only API Key"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Default Algolia Integration Settings -->
+        <record id="default_algolia_settings" model="algolia.integration.settings">
+            <field name="algolia_api_key">YourAlgoliaApiKey</field>
+            <field name="algolia_app_id">YourAlgoliaAppId</field>
+            <field name="index_name">odoo_ecommerce</field>
+            <field name="search_only_api_key">YourSearchOnlyApiKey</field>
+        </record>
+
+        <!-- Access Rights for Algolia Integration -->
+        <record id="access_algolia_integration" model="ir.model.access">
+            <field name="name">access.algolia.integration</field>
+            <field name="model_id" ref="model_algolia_integration"/>
+            <field name="group_id" ref="base.group_system"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_write" eval="1"/>
+            <field name="perm_create" eval="1"/>
+            <field name="perm_unlink" eval="1"/>
+        </record>
+
+        <!-- Access Rights for Search Configuration -->
+        <record id="access_search_configuration" model="ir.model.access">
+            <field name="name">access.search.configuration</field>
+            <field name="model_id" ref="model_search_configuration"/>
+            <field name="group_id" ref="base.group_system"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_write" eval="1"/>
+            <field name="perm_create" eval="1"/>
+            <field name="perm_unlink" eval="1"/>
+        </record>
+    </data>
+</odoo>
