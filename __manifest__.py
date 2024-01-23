@@ -4,8 +4,8 @@
     'summary': 'Integrates Algolia search engine with Odoo Version 16 Community Edition eCommerce.',
     'sequence': 10,
     'license': 'LGPL-3',
-    'author': 'Your Company',
-    'website': 'https://www.yourcompany.com',
+    'author': 'Vishwa G',
+    'website': 'https://www.thisisvishwa.com',
     'category': 'Website',
     'depends': ['website_sale'],
     'data': [
