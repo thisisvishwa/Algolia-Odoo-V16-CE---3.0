@@ -1,0 +1,51 @@
+<odoo>
+    <data>
+
+        <!-- Algolia Settings View -->
+        <record id="view_algolia_settings_form" model="ir.ui.view">
+            <field name="name">algolia.settings.form</field>
+            <field name="model">algolia.integration</field>
+            <field name="arch" type="xml">
+                <form string="Algolia Settings">
+                    <sheet>
+                        <group string="API Configuration">
+                            <group>
+                                <field name="algolia_api_key" string="API Key"/>
+                                <field name="algolia_app_id" string="Application ID"/>
+                            </group>
+                        </group>
+                        <group string="Search Configuration">
+                            <group>
+                                <field name="search_index_name" string="Index Name"/>
+                                <field name="enable_typo_tolerance" string="Enable Typo Tolerance"/>
+                                <field name="searchable_attributes" string="Searchable Attributes"/>
+                            </group>
+                        </group>
+                        <group string="Faceting and Filtering">
+                            <group>
+                                <field name="facets_attributes" string="Facets Attributes"/>
+                                <field name="max_facet_hits" string="Max Facet Hits"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Algolia Settings Action -->
+        <record id="action_algolia_settings" model="ir.actions.act_window">
+            <field name="name">Algolia Settings</field>
+            <field name="res_model">algolia.integration</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_algolia_settings_form"/>
+            <field name="target">new</field>
+        </record>
+
+        <!-- Algolia Settings Menu Item -->
+        <menuitem id="menu_algolia_settings" name="Algolia Settings"
+                  action="action_algolia_settings"
+                  parent="base.menu_custom"
+                  sequence="10"/>
+
+    </data>
+</odoo>
